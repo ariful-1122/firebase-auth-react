@@ -1,12 +1,25 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Button, Card, Cart, Form } from "react-bootstrap";
 import { useAuth } from "../context/AuthContext";
 
 const Signup = () => {
+  const [error, setError] = useState("");
   const { signup } = useAuth();
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
+
+  function submitHandler(e) {
+    e.preventDefault();
+    const enteredPassword = passwordRef.current.value;
+    const confirmEnteredPassword = passwordConfirmRef.current.value;
+
+    if (enteredPassword !== confirmEnteredPassword) {
+      return setError("password don't");
+    }
+
+    signup(emailRef.current.value, passwordRef.current.value);
+  }
 
   return (
     <>
