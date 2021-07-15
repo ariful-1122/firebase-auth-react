@@ -51,6 +51,9 @@ const Login = () => {
             <Button disabled={loading} type="submit" className="mt-4">
               Login
             </Button>
+            <div>
+              <Link to="/reset-password">Forgot Password?</Link>
+            </div>
           </Form>
           <div className="w-100 ml-2 mt-3">
             Need an account? <Link to="/signup">Signup</Link>
