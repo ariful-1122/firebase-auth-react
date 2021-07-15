@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Alert, Button, Card, Cart, Form } from "react-bootstrap";
 import { useAuth } from "../context/AuthContext";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   const [loading, setLoading] = useState(false);
@@ -56,9 +57,11 @@ const Signup = () => {
               Sign up
             </Button>
           </Form>
+          <div className="w-100 ml-2 mt-3">
+            Already Have an Account? <Link to="/login">Log In</Link>
+          </div>
         </Card.Body>
       </Card>
-      <div className="w-100 text-center">Already Have an Account? Log In</div>
     </>
   );
 };
