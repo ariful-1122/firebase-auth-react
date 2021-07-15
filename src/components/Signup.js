@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 const Signup = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const { currentUser } = useAuth();
   const { signup } = useAuth();
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -36,7 +35,7 @@ const Signup = () => {
       <Card className="col-md-6 mx-auto my-4">
         <Card.Body>
           <h2 className="text-center mb-4">Sign Up</h2>
-          {currentUser.email}
+
           {error && <Alert variant="danger"> {error} </Alert>}
           <Form onSubmit={submitHandler}>
             <Form.Group id="email">
