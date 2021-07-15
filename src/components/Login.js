@@ -1,19 +1,31 @@
 import React, { useRef, useState } from "react";
 import { Card, Form, Button, Alert } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const Login = () => {
-  const [error, setError] = useState();
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const { signin } = useAuth();
+  const history = useHistory();
+
   const email = useRef();
   const password = useRef();
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     const enteredEmail = email.current.value;
     const enteredPassword = password.current.value;
 
-    console.log(enteredEmail, enteredPassword);
+    try {
+      setError("");
+      setLoading(true);
+      await signin(enteredEmail, enteredPassword);
+      history.push("/");
+    } catch (e) {
+      setError("Login Failed");
+    }
+    setLoading(false);
   };
 
   return (
@@ -21,7 +33,7 @@ const Login = () => {
       <Card className="col-md-8 mx-auto my-5">
         <Card.Body>
           <h2 className="mb-4">Login</h2>
-
+          {error && <Alert variant="danger"> {error} </Alert>}
           <Form onSubmit={submitHandler}>
             <Form.Group>
               <Form.Label htmlFor="email">Email</Form.Label>
@@ -36,7 +48,7 @@ const Login = () => {
                 required
               />
             </Form.Group>
-            <Button type="submit" className="mt-4">
+            <Button disabled={loading} type="submit" className="mt-4">
               Login
             </Button>
           </Form>

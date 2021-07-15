@@ -11,7 +11,7 @@ const Signup = () => {
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
 
-  function submitHandler(e) {
+  async function submitHandler(e) {
     e.preventDefault();
     const enteredPassword = passwordRef.current.value;
     const confirmEnteredPassword = passwordConfirmRef.current.value;
@@ -23,7 +23,7 @@ const Signup = () => {
     try {
       setError("");
       setLoading(true);
-      signup(emailRef.current.value, passwordRef.current.value);
+      await signup(emailRef.current.value, passwordRef.current.value);
     } catch (error) {
       setError("Failed to create an account");
     }

@@ -7,8 +7,8 @@ import Login from "./Login";
 
 function App() {
   return (
-    <Router>
-      <AuthProvider>
+    <AuthProvider>
+      <Router>
         <Container>
           <Switch>
             <Route path="/" component={Dashboard} exact />
@@ -16,8 +16,8 @@ function App() {
             <Route path="/login" component={Login} />
           </Switch>
         </Container>
-      </AuthProvider>
-    </Router>
+      </Router>
+    </AuthProvider>
   );
 }
 
