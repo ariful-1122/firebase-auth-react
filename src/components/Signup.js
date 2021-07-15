@@ -5,6 +5,7 @@ import { useAuth } from "../context/AuthContext";
 const Signup = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const { currentUser } = useAuth();
   const { signup } = useAuth();
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -34,6 +35,7 @@ const Signup = () => {
       <Card className="col-md-6 mx-auto my-4">
         <Card.Body>
           <h2 className="text-center mb-4">Sign Up</h2>
+          {JSON.stringify(currentUser)}
           {error && <Alert variant="danger"> {error} </Alert>}
           <Form onSubmit={submitHandler}>
             <Form.Group id="email">
@@ -42,12 +44,12 @@ const Signup = () => {
             </Form.Group>
 
             <Form.Group id="password">
-              <Form.Label>Email</Form.Label>
+              <Form.Label>Password</Form.Label>
               <Form.Control ref={passwordRef} type="password" required />
             </Form.Group>
 
             <Form.Group id="confirmationPassword">
-              <Form.Label>Email</Form.Label>
+              <Form.Label>Confirm Password</Form.Label>
               <Form.Control ref={passwordConfirmRef} type="password" required />
             </Form.Group>
             <Button disabled={loading} className="mt-3" type="submit">
