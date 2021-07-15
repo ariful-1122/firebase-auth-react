@@ -32,7 +32,7 @@ const ForgotPassword = () => {
         <Card.Body>
           <h2 className="mb-4 text-center">Reset Password</h2>
           {error && <Alert variant="danger"> {error} </Alert>}
-          {message && <Alert variant="danger"> {message} </Alert>}
+          {message && <Alert variant="success"> {message} </Alert>}
           <Form onSubmit={submitHandler}>
             <Form.Group>
               <Form.Label htmlFor="email">Email</Form.Label>
