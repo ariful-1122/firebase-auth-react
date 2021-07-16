@@ -15,7 +15,6 @@ function App() {
           <Switch>
             <Route path="/" component={Dashboard} exact />
             <Route path="/update-profile" component={UpdateProfile} exact />
-
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
             <Route path="/reset-password" component={ForgotPassword} />
