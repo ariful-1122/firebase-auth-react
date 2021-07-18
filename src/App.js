@@ -1,10 +1,13 @@
-import "./App.css";
+import Layout from "./components/Layout";
 
 function App() {
   return (
-    <div className="App">
-      <h2>App js component</h2>
-    </div>
+    <Layout>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium
+      corporis modi doloribus error ipsum quaerat ex, atque pariatur
+      accusantium, expedita eius totam odit debitis recusandae assumenda in
+      quis? Optio, minus.
+    </Layout>
   );
 }
 

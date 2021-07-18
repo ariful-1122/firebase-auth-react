@@ -1,0 +1,4 @@
+.main {
+  background-color: rgb(43, 41, 66);
+  height: calc(100vh - 80px);
+}
